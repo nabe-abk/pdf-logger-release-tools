@@ -1,0 +1,10 @@
+pdf-logger.httpd.pl
+-o pdf-logger.exe
+-M DBI
+-M DBD::Pg
+-M DBD::mysql
+-M Digest::SHA
+-M Crypt::glibc
+-M utf8_heavy.pl
+-l libpq__.dll
+-l libmysql__.dll
