@@ -171,6 +171,7 @@ print "---Release checker-------------------------------------------------------
 {
 	if ($errors) {
 		print "\n## Total $errors errors.\n";
+		exit 1;
 	} else {
 		print "## error not found.\n";
 	}

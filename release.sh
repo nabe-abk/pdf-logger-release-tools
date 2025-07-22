@@ -6,10 +6,7 @@ EXT="bz2"
 NAME="pdf-logger"
 LIBNAME="plog"
 
-#-----------------------------------------------------------
-# Release checker
-#-----------------------------------------------------------
-__tool/checker.pl
+DIR=`dirname "$0"`
 
 #-----------------------------------------------------------
 # get Version
@@ -33,12 +30,10 @@ BASE="
 	$NAME.httpd.pl
 	$NAME.conf.cgi.sample
 	README.md
+	index.html
 	.htaccess.sample
 "
-EXE="
-	$NAME.exe
-	${NAME}_service.exe
-"
+
 #-----------------------------------------------------------
 # make release directory
 #-----------------------------------------------------------
@@ -56,7 +51,7 @@ cp -Rp $CPFLAGS $BASE $RELEASE/
 rm -rf $RELEASE/lib/Sakia/.git
 rm -f  $RELEASE/js/src
 
-cp -p $EXE $RELEASE/
+cp -p $DIR/files/* $RELEASE/
 
 #-----------------------------------------------------------
 # make other directory
@@ -93,16 +88,18 @@ fi
 
 echo "\n---Packaging--------------------------------------------------------------------"
 
+#-----------------------------------------------------------
 # Windows zip
+#-----------------------------------------------------------
 if [ `which zip` ]; then
-	echo zip -q $NAME-windows_x64.zip -r $RELEASE/
-	     zip -q $NAME-windows_x64.zip -r $RELEASE/
+	echo zip -q $RELEASE-win_x64.zip -r $RELEASE/
+	     zip -q $RELEASE-win_x64.zip -r $RELEASE/
 fi
 rm -f $RELEASE/*.exe
 
-#------------------------------------------------------------------
-
+#-----------------------------------------------------------
 # Release file
+#-----------------------------------------------------------
 echo $TAR $RELEASE.tar.$EXT $RELEASE/
      $TAR $RELEASE.tar.$EXT $RELEASE/
 
