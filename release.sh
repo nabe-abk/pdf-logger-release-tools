@@ -22,7 +22,7 @@ fi
 #-----------------------------------------------------------
 # set variables
 #-----------------------------------------------------------
-RELEASE=$NAME-$VERSION
+RELEASE=$NAME
 
 BASE="
 	$NAME.cgi
@@ -92,15 +92,15 @@ echo "\n---Packaging------------------------------------------------------------
 # Windows zip
 #-----------------------------------------------------------
 if [ `which zip` ]; then
-	echo zip -q $RELEASE.win-x64.zip -r $RELEASE/
-	     zip -q $RELEASE.win-x64.zip -r $RELEASE/
+	echo zip -q $RELEASE-$VERSION.win-x64.zip -r $RELEASE/
+	     zip -q $RELEASE-$VERSION.win-x64.zip -r $RELEASE/
 fi
 rm -f $RELEASE/*.exe
 
 #-----------------------------------------------------------
 # Release file
 #-----------------------------------------------------------
-echo $TAR $RELEASE.tar.$EXT $RELEASE/
-     $TAR $RELEASE.tar.$EXT $RELEASE/
+echo $TAR $RELEASE-$VERSION.tar.$EXT $RELEASE/
+     $TAR $RELEASE-$VERSION.tar.$EXT $RELEASE/
 
 rm -rf $RELEASE
