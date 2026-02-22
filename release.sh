@@ -45,7 +45,7 @@ fi
 #-----------------------------------------------------------
 # copy files to release directory
 #-----------------------------------------------------------
-cp -Rp $CPFLAGS skel pub-dist info js lib theme $RELEASE/
+cp -Rp $CPFLAGS skel pub-dist info js lib theme docs $RELEASE/
 cp -Rp $CPFLAGS $BASE $RELEASE/
 
 rm -rf $RELEASE/lib/Sakia/.git

@@ -1,1 +1,1 @@
-pp @__tool/pp.opt
+pp @__tools/pp.opt
